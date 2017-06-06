@@ -8,6 +8,8 @@ export ZSH=/Users/Rich/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context virtualenv dir rbenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -32,7 +34,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -56,6 +58,20 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+case $TERM in
+    screen|screen-w|screen-256color|screen-256color-bce)
+        alias titlecmd="screen_title"
+    ;;
+    xterm|xterm-256color|xterm-color)
+        alias titlecmd="xterm_title"
+    ;;
+    *)
+        alias titlecmd=":"
+    ;;
+esac
+
+fortune | cowsay
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
