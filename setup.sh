@@ -2,6 +2,13 @@
 cd ~
 ln -s ./dotfiles/zshrc .zshrc
 ln -s ./dotfiles/vimrc .vimrc
+ln -s ./dotfiles/tmux.conf .tmux.conf
+
+# Install Homebrew for OSX
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install tmux details
+brew install reattach-to-user-namespace
 
 # Install badwolf vim color scheme
 mkdir -p ./.vim
