@@ -38,6 +38,7 @@ call plug#end()
 " Activation {{{
 let g:airline#extensions#tabline#enabled = 1
 set encoding=utf-8
+set laststatus=2
 "}}}
 " vim:foldmethod=marker:foldlevel=0
 
