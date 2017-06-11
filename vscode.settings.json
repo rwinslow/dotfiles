@@ -1,0 +1,27 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontFamily": "Inconsolata-g, monospace",
+    "editor.fontSize": 13,
+    // "editor.fontFamily": "Input Mono, monospace",
+    // "editor.fontSize": 13,
+    "editor.minimap.enabled": false,
+    "editor.minimap.renderCharacters": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [
+        // 80
+    ],
+    // "editor.wordWrap": true,
+    "files.trimTrailingWhitespace": true,
+    "python.linting.enabled": true,
+    "python.linter": "pylint",
+    "python.linting.pylintEnabled": true,
+    "python.linting.pep8Enabled": false,
+    "python.linting.pylintArgs": [
+        "--disable=C0103,C0111,W1202,R0903,W1401,R0201"
+    ],
+    "terminal.external.osxExec": "iTerm.app",
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "Badwolf Paradox",
+    "workbench.iconTheme": "vs-seti"
+}
