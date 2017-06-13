@@ -41,4 +41,3 @@ set encoding=utf-8
 set laststatus=2
 "}}}
 " vim:foldmethod=marker:foldlevel=0
-
