@@ -24,9 +24,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 mkdir -p ./.vim
 mkdir -p ./.vim/colors
 
-git clone https://github.com/sjl/badwolf.git
-cp ./badwolf/colors/badwolf.vim ./.vim/colors/badwolf.vim
-rm -rf ./badwolf
+git clone https://github.com/dracula/vim.git
+cp ./vim/colors/dracula.vim ./.vim/colors/dracula.vim
+rm -rf ./vim
 
 # install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \

@@ -1,7 +1,7 @@
 " Douglas Black
 " Colors {{{
-syntax enable           " enable syntax processing
-colorscheme badwolf
+syntax on               " enable syntax processing
+color dracula
 " }}}
 " Spaces & Tabs {{{
 set tabstop=4           " 4 space tab
