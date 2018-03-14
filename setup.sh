@@ -13,6 +13,9 @@ chsh -s $(which zsh)
 # reinitialize .zshrc to use brew
 source ~/.zshrc
 
+# install vscode
+brew cask install visual-studio-code
+
 # install tmux details
 brew install tmux
 brew install reattach-to-user-namespace
