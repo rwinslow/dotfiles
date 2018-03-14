@@ -20,12 +20,12 @@ brew install reattach-to-user-namespace
 # tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# install badwolf vim color scheme
+# install vim color scheme
 mkdir -p ./.vim
 mkdir -p ./.vim/colors
 
-git clone https://github.com/dracula/vim.git
-cp ./vim/colors/dracula.vim ./.vim/colors/dracula.vim
+git clone https://github.com/geoffharcourt/one-dark.vim.git ./vim
+cp ./vim/colors/onedark.vim ./.vim/colors/onedark.vim
 rm -rf ./vim
 
 # install vim-plug
