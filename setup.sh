@@ -1,8 +1,8 @@
 # soft link in root to files
 cd ~
-ln -s ./devconfig/zshrc .zshrc
-ln -s ./devconfig/vimrc .vimrc
-ln -s ./devconfig/tmux.conf .tmux.conf
+ln -s ./dotfiles/zshrc .zshrc
+ln -s ./dotfiles/vimrc .vimrc
+ln -s ./dotfiles/tmux.conf .tmux.conf
 
 # default shell zsh
 chsh -s $(which zsh)
