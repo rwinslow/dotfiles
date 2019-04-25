@@ -1,14 +1,17 @@
 {
     "editor.fontFamily": "DejaVu Sans Mono, monospace",
-    "editor.fontSize": 13,
+    "editor.fontSize": 14,
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": true,
     "editor.minimap.showSlider": "always",
     "editor.renderWhitespace": "boundary",
     "files.trimTrailingWhitespace": true,
+    "html.autoClosingTags": false,
     "markdownlint.config": {
         "MD013": false,
-        "MD033": false
+        "MD033": false,
+        "MD024": false,
+        "MD025": false
     },
     "pasteImage.path": "${currentFileDir}/Images",
     "python.linting.pylintArgs": [
@@ -17,9 +20,17 @@
     "python.workspaceSymbols.enabled": false,
     "terminal.external.osxExec": "iTerm.app",
     "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "One Dark Pro",
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Noctis Obscuro",
+    "workbench.iconTheme": "minimalistic-icons",
     "workbench.startupEditor": "newUntitledFile",
-    "material-icon-theme.showUpdateMessage": false,
+    "editor.rulers": [80],
+    "spellright.documentTypes": [
+        "latex",
+        "plaintext",
+        "markdown"
+    ],
+    "telemetry.enableTelemetry": false,
+    "window.zoomLevel": 0,
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
     "vsicons.dontShowNewVersionMessage": true
 }
