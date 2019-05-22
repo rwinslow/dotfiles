@@ -1,6 +1,6 @@
 {
-    "editor.fontFamily": "DejaVu Sans Mono, monospace",
-    "editor.fontSize": 14,
+    "editor.fontFamily": "Hack, DejaVu Sans Mono, monospace",
+    "editor.fontSize": 15,
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": true,
     "editor.minimap.showSlider": "always",
@@ -14,16 +14,17 @@
         "MD025": false
     },
     "pasteImage.path": "${currentFileDir}/Images",
-    "python.linting.pylintArgs": [
-        "--disable=C0103,C0111,W1202,R0903,W1401,R0201"
+    "python.linting.flake8Args": [
+        "--ignore",
+        "E501"
     ],
     "python.workspaceSymbols.enabled": false,
     "terminal.external.osxExec": "iTerm.app",
     "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "Noctis Obscuro",
+    "workbench.colorTheme": "Gruvbox Dark (Hard)",
     "workbench.iconTheme": "minimalistic-icons",
     "workbench.startupEditor": "newUntitledFile",
-    "editor.rulers": [80],
+    "editor.rulers": [88],
     "spellright.documentTypes": [
         "latex",
         "plaintext",
@@ -32,5 +33,8 @@
     "telemetry.enableTelemetry": false,
     "window.zoomLevel": 0,
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
     "vsicons.dontShowNewVersionMessage": true
 }

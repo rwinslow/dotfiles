@@ -1,47 +1,61 @@
 # soft link in root to files
-cd ~
-ln -s ./dotfiles/zshrc .zshrc
-ln -s ./dotfiles/vimrc .vimrc
-ln -s ./dotfiles/tmux.conf .tmux.conf
+ln -s ./zshrc $HOME/.zshrc
+ln -s ./vimrc $HOME/.vimrc
+ln -s ./tmux.conf $HOME/.tmux.conf
 
 # create .local_zshrc for specific local configurations
-touch ~/.local_zshrc
+touch $HOME/.local_zshrc
 
 # default shell zsh
+echo "Switching default shell to zsh."
 chsh -s $(which zsh)
 
 # install Homebrew for OSX or Linuxbrew for Linux
-if  [ "$(uname)" == "Darwin" ]; then
+if  [[ "$(uname)" == "Darwin" ]] && [[ ! -x "$(command -v brew)" ]]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-    test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
+    test -d $HOME/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
     test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-    test -r ~/dotfiles/zshrc && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.local_zshrc
-    echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.local_zshrc
+    test -r $HOME/dotfiles/zshrc && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>$HOME/.local_zshrc
+    echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>$HOME/.local_zshrc
 fi
 
 # reinitialize .zshrc to use brew
-source ~/.zshrc
+source $HOME/.zshrc
 
 # install vscode
-brew cask install visual-studio-code
+if brew ls --versions visual-studio-code > /dev/null; then
+    echo "visual-studio-code already installed."
+else
+    brew cask install visual-studio-code
+fi
 
 # install tmux details
-brew install tmux
-brew install reattach-to-user-namespace
+if brew ls --versions tmux > /dev/null; then
+    echo "tmux already installed."
+else
+    brew install tmux
+fi
 
-# tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if brew ls --versions reattach-to-user-namespace > /dev/null; then
+    echo "reattach-to-user-namespace already installed."
+else
+    brew install reattach-to-user-namespace
+fi
+
+# fetch color schemes
+mkdir temp
+git clone https://github.com/morhetz/gruvbox-contrib.git ./temp/gruvbox-contrib
+git clone https://github.com/morhetz/gruvbox.git ./temp/gruvbox
 
 # install vim color scheme
-mkdir -p ./.vim
-mkdir -p ./.vim/colors
+mkdir -p $HOME/.vim
+mkdir -p $HOME/.vim/colors
 
-git clone https://github.com/geoffharcourt/one-dark.vim.git ./vim
-cp ./vim/colors/onedark.vim ./.vim/colors/onedark.vim
-rm -rf ./vim
+# copy colors to desired destinations
+cp ./temp/gruvbox/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim
+cp ./temp/gruvbox-contrib/iterm2/gruvbox-dark.itermcolors $HOME/gruvbox-dark.itermcolors
+rm -rf ./temp
 
-# install vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-echo "Run :PluginInstall in VIM to finish"
+echo "Done."

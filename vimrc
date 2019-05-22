@@ -1,7 +1,7 @@
 " Douglas Black
 " Colors {{{
 syntax on               " enable syntax processing
-color onedark
+color gruvbox
 " }}}
 " Spaces & Tabs {{{
 set tabstop=4           " 4 space tab
@@ -19,7 +19,7 @@ set showcmd             " show command in bottom bar
 set nocursorline        " highlight current line
 set wildmenu
 set lazyredraw
-set showmatch           " higlight matching parenthesis
+set showmatch           " highlight matching parenthesis
 set fillchars+=vert:┃
 " }}}
 " Searching {{{
