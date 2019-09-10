@@ -3,15 +3,12 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/Anaconda/bin:/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="muse"
-
-# 10 second wait if you do something that will delete everything.
-setopt RM_STAR_WAIT
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

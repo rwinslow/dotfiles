@@ -1,28 +1,35 @@
+# install Homebrew for OSX or Linuxbrew for Linux
+if [[ $(command -v brew) == "" ]]; then
+    echo "installing homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    echo "updating homebrew"
+    brew update
+fi
+
 # soft link in root to files
-ln -s ./zshrc $HOME/.zshrc
-ln -s ./vimrc $HOME/.vimrc
-ln -s ./tmux.conf $HOME/.tmux.conf
+echo "softlinking config files."
+ln -sf $HOME/dotfiles/zshrc $HOME/.zshrc
+ln -sf $HOME/dotfiles/vimrc $HOME/.vimrc
+ln -sf $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
 
 # create .local_zshrc for specific local configurations
 touch $HOME/.local_zshrc
 
-# default shell zsh
-echo "Switching default shell to zsh."
-chsh -s $(which zsh)
-
-# install Homebrew for OSX or Linuxbrew for Linux
-if  [[ "$(uname)" == "Darwin" ]] && [[ ! -x "$(command -v brew)" ]]; then
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-    test -d $HOME/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
-    test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-    test -r $HOME/dotfiles/zshrc && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>$HOME/.local_zshrc
-    echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>$HOME/.local_zshrc
-fi
-
 # reinitialize .zshrc to use brew
+echo "reinitializing with .zshrc"
 source $HOME/.zshrc
+
+echo "installing zsh."
+brew install zsh
+
+echo "installing oh-my-zsh."
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+echo "installing hack font."
+brew tap caskroom/fonts
+brew cask install font-hack
+
 
 # install vscode
 if brew ls --versions visual-studio-code > /dev/null; then
@@ -55,7 +62,6 @@ mkdir -p $HOME/.vim/colors
 
 # copy colors to desired destinations
 cp ./temp/gruvbox/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim
-cp ./temp/gruvbox-contrib/iterm2/gruvbox-dark.itermcolors $HOME/gruvbox-dark.itermcolors
 rm -rf ./temp
 
 echo "Done."

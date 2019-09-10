@@ -27,14 +27,6 @@ set ignorecase          " ignore case when searching
 set incsearch           " search as characters are entered
 set hlsearch            " highlight all matches
 " }}}
-" Vim Plug {{{
-call plug#begin('~/.vim/plugged')
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
-call plug#end()
-" }}}
 " Activation {{{
 let g:airline#extensions#tabline#enabled = 1
 set encoding=utf-8
