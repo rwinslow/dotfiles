@@ -98,6 +98,9 @@ esac
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Include additional custom settings.
-if [[ -a ~/.local_zshrc ]]; then
-    source ~/.local_zshrc
+if [[ -a ~/.local ]]; then
+    source ~/.local
+fi
+if [[ -a ~/.bash_profile ]]; then
+    source ~/.bash_profile
 fi
