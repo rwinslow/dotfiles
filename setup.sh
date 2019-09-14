@@ -8,7 +8,7 @@ else
 fi
 
 # soft link in root to files
-echo "softlinking config files."
+echo "softlinking config files"
 ln -sf $HOME/dotfiles/zshrc $HOME/.zshrc
 ln -sf $HOME/dotfiles/vimrc $HOME/.vimrc
 ln -sf $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
@@ -20,16 +20,18 @@ touch $HOME/.local_zshrc
 echo "reinitializing with .zshrc"
 source $HOME/.zshrc
 
-echo "installing zsh."
+echo "installing zsh"
 brew install zsh
 
-echo "installing oh-my-zsh."
+echo "installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-echo "installing hack font."
+echo "installing miniconda"
+brew cask install miniconda
+
+echo "installing hack font"
 brew tap caskroom/fonts
 brew cask install font-hack
-
 
 # install vscode
 if brew ls --versions visual-studio-code > /dev/null; then
@@ -40,13 +42,13 @@ fi
 
 # install tmux details
 if brew ls --versions tmux > /dev/null; then
-    echo "tmux already installed."
+    echo "tmux already installed"
 else
     brew install tmux
 fi
 
 if brew ls --versions reattach-to-user-namespace > /dev/null; then
-    echo "reattach-to-user-namespace already installed."
+    echo "reattach-to-user-namespace already installed"
 else
     brew install reattach-to-user-namespace
 fi
@@ -64,4 +66,4 @@ mkdir -p $HOME/.vim/colors
 cp ./temp/gruvbox/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim
 rm -rf ./temp
 
-echo "Done."
+echo "Done"
