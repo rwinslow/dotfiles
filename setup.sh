@@ -53,17 +53,24 @@ else
     brew install reattach-to-user-namespace
 fi
 
-# fetch color schemes
+# temp directory for storing install files
 mkdir temp
-git clone https://github.com/morhetz/gruvbox-contrib.git ./temp/gruvbox-contrib
-git clone https://github.com/morhetz/gruvbox.git ./temp/gruvbox
+
+# fetch color schemes
+git clone https://github.com/dracula/vim.git ./temp/vim
+git clone https://github.com/dracula/iterm.git ./temp/iterm
 
 # install vim color scheme
 mkdir -p $HOME/.vim
 mkdir -p $HOME/.vim/colors
+mkdir -p $HOME/.vim/autoload
+cp ./temp/vim/colors/dracula.vim $HOME/.vim/colors/dracula.vim
+cp ./temp/vim/autoload/dracula.vim $HOME/.vim/autoload/dracula.vim
 
-# copy colors to desired destinations
-cp ./temp/gruvbox/colors/gruvbox.vim $HOME/.vim/colors/gruvbox.vim
+# move dracula iterm theme into home dir
+cp ./temp/iterm/Dracula.itermcolors $HOME/Dracula.itermcolors
+
+# remove temp directory
 rm -rf ./temp
 
 echo "Done"
