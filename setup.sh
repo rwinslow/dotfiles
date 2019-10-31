@@ -40,19 +40,6 @@ else
     brew cask install visual-studio-code
 fi
 
-# install tmux details
-if brew ls --versions tmux > /dev/null; then
-    echo "tmux already installed"
-else
-    brew install tmux
-fi
-
-if brew ls --versions reattach-to-user-namespace > /dev/null; then
-    echo "reattach-to-user-namespace already installed"
-else
-    brew install reattach-to-user-namespace
-fi
-
 # temp directory for storing install files
 mkdir temp
 
