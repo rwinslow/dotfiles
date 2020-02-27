@@ -32,6 +32,7 @@ brew cask install miniconda
 echo "installing hack font"
 brew tap caskroom/fonts
 brew cask install font-hack
+brew cask install font-fira-code
 
 # install vscode
 if brew ls --versions visual-studio-code > /dev/null; then
