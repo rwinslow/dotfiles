@@ -16,12 +16,12 @@ ln -sf $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
 # create .local_zshrc for specific local configurations
 touch $HOME/.local_zshrc
 
+echo "installing zsh"
+brew install zsh
+
 # reinitialize .zshrc to use brew
 echo "reinitializing with .zshrc"
 source $HOME/.zshrc
-
-echo "installing zsh"
-brew install zsh
 
 echo "installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -43,20 +43,6 @@ fi
 
 # temp directory for storing install files
 mkdir temp
-
-# fetch color schemes
-git clone https://github.com/dracula/vim.git ./temp/vim
-git clone https://github.com/dracula/iterm.git ./temp/iterm
-
-# install vim color scheme
-mkdir -p $HOME/.vim
-mkdir -p $HOME/.vim/colors
-mkdir -p $HOME/.vim/autoload
-cp ./temp/vim/colors/dracula.vim $HOME/.vim/colors/dracula.vim
-cp ./temp/vim/autoload/dracula.vim $HOME/.vim/autoload/dracula.vim
-
-# move dracula iterm theme into home dir
-cp ./temp/iterm/Dracula.itermcolors $HOME/Dracula.itermcolors
 
 # remove temp directory
 rm -rf ./temp
